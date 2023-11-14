@@ -1,41 +1,32 @@
 #include <fstream>
 #include <iostream>
+#include <string>
+#include "Cesar.h"
 using namespace std;
 
 int main()
 {
-    string monFichier = "io/test.txt";
-    string fromfile;
-    ofstream fichier(monFichier, ios::out | ios::trunc);
+    char command;
+    int decalage;
 
-    if (fichier) 
-    {
-        fichier << "Hello world!";
-        fichier.close();
+    Cesar instanceCesar;
+    cout << "voulez vous crypter ou decrypter votre fichier ? (c, d) \n";
+    cin >> command;
+    if (command == 'c') {
+        instanceCesar.setCrypt(0);
+        cout << "Cryptage";
     }
-    else
-        cerr << "Erreur à l'ouverture" << endl;
-
-    ifstream fichierIn(monFichier, ios::in);
-
-    if (fichierIn)
-    {
-        fichierIn >> fromfile;
-        fichierIn.close();
-
+    else if (command == 'd') {
+        instanceCesar.setCrypt(1);
     }
-    else
-        cerr << "Erreur à l'ouverture" << endl;
-
-    ofstream fichierO("io/write.txt", ios::out | ios::trunc);
-
-    if (fichierO)
-    {
-        fichierO << fromfile;
-        fichierO.close();
-
+    else {
+        cout << "Reponse invalide : " << command << "\n";
     }
-    else
-        cerr << "Erreur à l'ouverture" << endl;
-    return 0;
+    cout << "Quelle est la clef de votre cryptage ?";
+    cin >> decalage;
+    instanceCesar.setDecalage(decalage);
+
+    cout << instanceCesar.getFileName();
+    instanceCesar.cryptage();
+
 }
