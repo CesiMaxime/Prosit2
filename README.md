@@ -11,4 +11,8 @@
 ![class2](https://github.com/CesiMaxime/Prosit2/assets/150124033/8bdcc66b-6c94-477b-99d6-53fd1427f63a)
 
 ## Sequence diagram:
+
 ![Diagramme de séquence drawio](https://github.com/CesiMaxime/Prosit2/assets/150124033/84daa2d6-647c-41e2-bc2d-21fa8aeff36c)
+
+## Activity diagram:
+![diagramme dactivite drawio](https://github.com/CesiMaxime/Prosit2/assets/150124033/3feb5e88-dc3f-4ce1-9372-a26ba6ed7520)
