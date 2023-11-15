@@ -1,18 +1,18 @@
 #pragma once
-using namespace std;
 #include <iostream>
 #include <string>
 #include <fstream>
+using namespace std;
 
+#ifndef XOR_H
+#define XOR_H
 
-#ifndef CESAR_H
-#define CESAR_H
-class Cesar {
-
+class Xor
+{
 private:
 	bool crypt;
 	bool type3;
-	int decalage;
+	string clef;
 	string fileName;
 	string newFileName;
 
@@ -23,8 +23,8 @@ public:
 	bool getType3();
 	void setType3(bool type3);
 
-	int getDecalage();
-	void setDecalage(int decalage);
+	string getClef();
+	void setClef(string decalage);
 
 	string getFileName();
 	void setFileName(string fileName);
@@ -32,10 +32,9 @@ public:
 	string getNewFileName();
 	void setNewFileName(string newFileName);
 
-	Cesar();
-	Cesar(bool crypt, int decalage, string fileName, string newFileName);
+	Xor();
+	Xor(bool crypt, string decalage, string fileName, string newFileName);
 
 	void cryptage();
 };
-
 #endif

@@ -141,9 +141,11 @@
   <ItemGroup>
     <ClCompile Include="Cesar.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Xor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cesar.h" />
+    <ClInclude Include="Xor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -62,29 +62,43 @@ Cesar::Cesar(bool crypt, int decalage, string fileName, string newFileName) {
 
 //cette fonction a été écrite en partie par chat gpt-3.5
 void Cesar::cryptage() {
-    // Ouverture du fichier d'entrée
-    ifstream fichierEntree(fileName);
 
-    if (!fichierEntree.is_open()) {
+    string fichierEntree;
+    if (type3 && crypt) {
+        fichierEntree = "io/transition.txt";
+    }
+    else {
+        fichierEntree = this->fileName;
+    }
+
+    ifstream fichierEntreeStream(fichierEntree);
+
+    if (!fichierEntreeStream.is_open()) {
         cerr << "Erreur lors de l'ouverture du fichier d'entrée." << endl;
         return;
     }
 
+    string fichierSortie;
     // Sélection du fichier de sortie en fonction de type3
-    string fichierSortie = (type3) ? "io/transition.txt" : newFileName;
+    if (type3 && !crypt) {
+        fichierSortie = "io/transition.txt";
+    }
+    else {
+        fichierSortie = this->newFileName;
+    }
 
     // Ouverture du fichier de sortie
     ofstream fichierSortieStream(fichierSortie);
 
     if (!fichierSortieStream.is_open()) {
         cerr << "Erreur lors de l'ouverture du fichier de sortie." << endl;
-        fichierEntree.close();
+        fichierEntreeStream.close();
         return;
     }
 
     // Chiffrement ou déchiffrement du texte caractère par caractère
     char caractere;
-    while (fichierEntree.get(caractere)) {
+    while (fichierEntreeStream.get(caractere)) {
         if (isalpha(caractere)) {
             char base = (isupper(caractere)) ? 'A' : 'a';
             int decalageApplique = (crypt) ? decalage : -decalage;
@@ -95,9 +109,9 @@ void Cesar::cryptage() {
     }
 
     // Fermeture des fichiers
-    fichierEntree.close();
+    fichierEntreeStream.close();
     fichierSortieStream.close();
 
     string action = (crypt) ? "Chiffrement" : "Déchiffrement";
-    cout << action << " terminé. Résultat sauvegardé dans " << fichierSortie << endl;
+    cout << action << "Success. Saved file :" << fichierSortie << endl;
 }
