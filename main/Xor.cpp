@@ -3,61 +3,22 @@
 #include <fstream>
 #include "Xor.h"
 
-
-bool Xor::getCrypt() {
-	return this->crypt;
-}
-
-void Xor::setCrypt(bool crypt) {
-	this->crypt = crypt;
-}
-
-bool Xor::getType3() {
-	return this->type3;
-}
-
-void Xor::setType3(bool type3) {
-	this->type3 = type3;
-}
-
 string Xor::getClef() {
 	return this->clef;
 }
 
-void Xor::setClef(string clef) {
+void Xor::setClef(string tclef) {
 	this->clef = clef;
 }
 
-string Xor::getFileName() {
-	return this->fileName;
-}
-
-void Xor::setFileName(string fileName) {
-	this->fileName = fileName;
-}
-
-string Xor::getNewFileName() {
-	return this->newFileName;
-}
-
-void Xor::setNewFileName(string newFileName) {
-	this->newFileName = newFileName;
-}
 
 Xor::Xor() {
-	this->crypt = 0;
-	this->type3 = 0;
 	this->clef = "11111111";
-	this->fileName = "io/test.txt";
-	this->newFileName = "io/res.txt";
 
 }
 
-Xor::Xor(bool crypt, string clef, string fileName, string newFileName) {
-	this->crypt = crypt;
+Xor::Xor(string tclef) {
 	this->clef = clef;
-	this->fileName = fileName;
-	this->newFileName = newFileName;
 }
 
 void Xor::cryptage() {
