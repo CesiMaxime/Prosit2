@@ -2,23 +2,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "Encryption.h"
 using namespace std;
-
-bool Cesar::getCrypt() {
-	return this->crypt;
-}
-
-void Cesar::setCrypt(bool crypt) {
-	this->crypt = crypt;
-}
-
-bool Cesar::getType3() {
-	return this->type3;
-}
-
-void Cesar::setType3(bool type3) {
-	this->type3 = type3;
-}
 
 int Cesar::getDecalage() {
 	return this->decalage;
@@ -28,36 +13,13 @@ void Cesar::setDecalage(int decalage) {
 	this->decalage = decalage;
 }
 
-string Cesar::getFileName() {
-	return this->fileName;
-}
 
-void Cesar::setFileName(string fileName) {
-	this->fileName = fileName;
-}
-
-string Cesar::getNewFileName() {
-	return this->newFileName;
-}
-
-void Cesar::setNewFileName(string newFileName) {
-	this->newFileName = newFileName;
-}
-
-Cesar::Cesar() {
-	this->crypt = 0;
-    this->type3 = 0;
+Cesar::Cesar() : Encryption(){
 	this->decalage = 1;
-	this->fileName = "io/test.txt";
-	this->newFileName = "io/res.txt";
-
 }
 
-Cesar::Cesar(bool crypt, int decalage, string fileName, string newFileName) {
-	this->crypt = crypt;
+Cesar::Cesar(int decalage){
 	this->decalage = decalage;
-	this->fileName = fileName;
-	this->newFileName = newFileName;
 }
 
 //cette fonction a été écrite en partie par chat gpt-3.5

@@ -1,13 +1,14 @@
+#pragma once
 #include <fstream>
 #include <iostream>
 #include <string>
 #include "Encryption.h"
 #include "Cesar.h"
 #include "Xor.h"
-#include "Ihm.h"
-
-int main()
+class Ihm
 {
-    Ihm instanceIhm;
-    instanceIhm.execCrypt();
-}
+public:
+	Ihm();
+	void execCrypt(void);
+};
+
